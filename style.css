@@ -1,0 +1,26 @@
+/* Digital watch */
+* { 
+  margin: 0cap;
+  padding: 0cap;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: content-box;
+  box-shadow: 10%;
+
+}
+.time {
+  width: 100%;
+  min-height: 100vh;
+  background:linear-gradient(45deg,#555,#fff,#250b6c,#242424);
+  color: #fff;
+  position: relative;
+
+}
+.container {
+  width: 800px;
+  height: 180px;
+  left: 50%;
+top: 50%;
+position: absolute;
+transform: translate(-50%,-50%);
+background-color: greenyellow;
+}
