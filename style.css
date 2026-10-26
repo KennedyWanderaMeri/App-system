@@ -1,10 +1,10 @@
 /* Digital watch */
 * { 
-  margin: 0cap;
-  padding: 0cap;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'poppins', sans-serif;
   box-sizing: content-box;
-  box-shadow: 10%;
+
 
 }
 .time {
@@ -62,6 +62,22 @@ z-index: -1;
   font-size: 80px;
   width: 110px;
   position: relative;
-  align-items: center;
+  text-align: center;
   display: inline-block;
+}
+.watch span::after{
+  font-size: 16px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#hrs::after{
+  content: 'HOURS';
+}
+#mins::after{
+  content: 'MINS';
+}
+#sec::after{
+  content: 'SEC';
 }
