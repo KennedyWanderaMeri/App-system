@@ -32,6 +32,7 @@ background-color: rgb(2, 2, 76);
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  backdrop-filter: blur(40px);
 }
 .container::before {
   content: '';
@@ -56,4 +57,11 @@ right: -30px;
 bottom: -50px;
 z-index: -1;
 
+}
+.watch span {
+  font-size: 80px;
+  width: 110px;
+  position: relative;
+  align-items: center;
+  display: inline-block;
 }
