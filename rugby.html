@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEST YOUR RUGBY IQ</title>
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Teko:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP APP HEADER -->
+  <header class="app-header">
+    <div class="logo-box">
+      <i data-lucide="trophy" class="logo-icon"></i>
+      <h1 class="logo-text">TEST YOUR RUGBY IQ</h1>
+    </div>
+    <div id="user-badge" class="user-badge hidden">
+      <i data-lucide="user" class="badge-icon"></i>
+      <span id="badge-user-name">Player</span>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- VIEW 1: REGISTRATION FORM -->
+    <section id="auth-view" class="card-view active">
+      <div class="card-header">
+        <div class="icon-circle">
+          <i data-lucide="shield"></i>
+        </div>
+        <h2>Player Registration</h2>
+        <p>Enter your details below to unlock the 6-question Rugby IQ assessment.</p>
+      </div>
+
+      <form id="reg-form" novalidate>
+        <!-- Full Name -->
+        <div class="input-group">
+          <label for="full-name">Full Name</label>
+          <div class="input-wrapper">
+            <i data-lucide="user" class="input-icon"></i>
+            <input type="text" id="full-name" placeholder="e.g. John Doe" autocomplete="name" />
+          </div>
+          <span class="error-msg" id="name-error">Please enter at least 3 characters.</span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <i data-lucide="mail" class="input-icon"></i>
+            <input type="email" id="email" placeholder="e.g. player@rugby.com" autocomplete="email" />
+          </div>
+          <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <i data-lucide="lock" class="input-icon"></i>
+            <input type="password" id="password" placeholder="At least 6 characters" autocomplete="current-password" />
+          </div>
+          <span class="error-msg" id="password-error">Password must be at least 6 characters.</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Start Challenge <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+    </section>
+
+    <!-- VIEW 2: QUIZ PAGE (6 QUESTIONS) -->
+    <section id="quiz-view" class="card-view">
+      <!-- Progress Bar -->
+      <div class="quiz-topbar">
+        <div class="quiz-meta">
+          <span id="question-category" class="category-pill">Rulebook</span>
+          <span id="question-counter" class="step-pill">Question 1 of 6</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-fill" style="width: 16.66%;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="question-container">
+        <h3 id="question-text" class="question-title">Loading Question...</h3>
+        <div id="options-grid" class="options-grid"></div>
+      </div>
+
+      <!-- Explanation Box -->
+      <div id="explanation-box" class="explanation-box hidden">
+        <div class="explanation-content">
+          <i data-lucide="info" class="explanation-icon"></i>
+          <div>
+            <strong>Rugby Fact:</strong>
+            <p id="explanation-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Footer Controls -->
+      <div class="quiz-footer">
+        <button id="next-btn" class="btn btn-accent btn-block hidden">
+          Next Question <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW 3: RESULTS DASHBOARD -->
+    <section id="results-view" class="card-view">
+      <div class="results-header">
+        <div class="score-ring-wrapper">
+          <svg class="score-ring" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle id="score-ring-fill" class="ring-fill" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-content">
+            <span id="final-score-text" class="score-num">0/6</span>
+            <span id="final-percent-text" class="score-sub">0%</span>
+          </div>
+        </div>
+
+        <h2 id="rank-title" class="rank-title">Calculating Rank...</h2>
+        <p id="rank-description" class="rank-desc">Evaluating your rugby knowledge performance.</p>
+      </div>
+
+      <!-- Top Score Banner -->
+      <div class="top-score-card">
+        <i data-lucide="crown" class="crown-icon"></i>
+        <div>
+          <span class="card-label">Current All-Time Best</span>
+          <div id="top-score-details" class="card-value">No records yet</div>
+        </div>
+      </div>
+
+      <!-- Leaderboard Table -->
+      <div class="leaderboard-section">
+        <div class="section-title-box">
+          <i data-lucide="award"></i>
+          <h3>Rugby IQ Leaderboard</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>Score</th>
+                <th>Accuracy</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <tr>
+                <td colspan="5" class="empty-state">No attempts recorded yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="results-actions">
+        <button id="restart-btn" class="btn btn-primary">
+          <i data-lucide="rotate-ccw"></i> Try Again
+        </button>
+        <button id="clear-scores-btn" class="btn btn-outline">
+          <i data-lucide="trash-2"></i> Clear Leaderboard
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
