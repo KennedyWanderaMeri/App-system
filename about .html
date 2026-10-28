@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Rugby Quiz Hub</title>
+  <style>
+    /* Reset & Core Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #f4f7f6;
+    }
+
+    /* Header Banner */
+    header {
+      background: linear-gradient(135deg, #004225, #007a3d);
+      color: #ffffff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Card Styling */
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .card h2 {
+      color: #004225;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Contact Form */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #004225;
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #007a3d;
+    }
+
+    /* Status Message */
+    #statusMsg {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Rugby Quiz Hub</h1>
+    <p>Test your match knowledge & conquer the leaderboard</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- About Section -->
+    <section class="card">
+      <h2>Who We Are</h2>
+      <p>Welcome to <strong>Rugby Quiz Hub</strong>! We are passionate rugby fans dedicated to bringing you short, sharp, and exciting trivia about world rugby. From local club histories to international championships, test your knowledge across players, rules, and legendary matches.</p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="card">
+      <h2>Our Mission</h2>
+      <p>To build a fast, fun, and competitive community for rugby enthusiasts worldwide. Whether you are a casual follower or a seasoned player, our quizzes offer a quick challenge anytime, anywhere.</p>
+    </section>
+
+    <!-- Contacts & Feedback Section -->
+    <section class="card">
+      <h2>Get In Touch</h2>
+      <p style="margin-bottom: 1rem;">Have questions, feedback, or a trivia suggestion? Drop us a message below!</p>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Your Message or Quiz Suggestion" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      
+      <div id="statusMsg"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Rugby Quiz Hub. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const statusMsg = document.getElementById('statusMsg');
+
+      // Simple response logic
+      statusMsg.style.color = '#007a3d';
+      statusMsg.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+
+      // Clear the form fields
+      document.getElementById('contactForm').reset();
+    });
+  </script>
+
+</body>
+</html>
