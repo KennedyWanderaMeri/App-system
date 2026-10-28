@@ -82,6 +82,24 @@ z-index: -1;
 #sec::after{
   content: 'SEC';
 }
+#f1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);}
+
+#f1 p {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+}
+
+#f1 {
+    color: #f47d7d;
+}
+
 /* Test Rugby IQ*/
 /* ==========================================================================
    RESET & VARIABLES
@@ -434,7 +452,7 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(14, 64, 110, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
